@@ -4,7 +4,7 @@ var guess,
     answer,
     message;
 
-guess = prompt("I love to travel..can you guess how many countries I have visited?");
+guess = prompt("I love to travel. Can you guess how many countries I have visited? Give it a try...guess a number!");
 console.log("The user guessed " + guess);
 
 answer = 20;
@@ -12,11 +12,11 @@ console.log("The answer is " + answer);
 
 if (guess == answer) {
   message = "Wow, good guess! You got it!";
-  } else if (guess > 20) {
+} else if (guess > 20) {
   message = "Not that many, I wish!";
-  } else {
+} else {
   message = "Nope! Guess higher next time.";
-  }
+}
 
 alert(message);
 
