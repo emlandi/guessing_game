@@ -1,22 +1,27 @@
 <script>
-
-var guess,
-    answer;
-
-guess = prompt("I love to travel. Can you guess how many countries I have visited? Give it a try...guess a number! And the catch is, you only get THREE guesses.");
-console.log("The user guessed " + guess);
-
-answer = 20;
-console.log("The answer is " + answer);
-
-for (var i = 0; i < 2; i++) {
-  if (guess == answer) {
-    alert("Wow, good guess! You got it!");
-  } else if (guess > 20) {
-    guess = prompt("Not that many, I wish!");
-  } else {
-    guess = prompt("Nope! Guess higher next time.");
-  }
+var Game = function(){
+  this.guess = "";
+  this.answer = 20;
 }
 
+var game = new Game();
+
+alert("I love to travel. Can you guess how many countries I have visited? Give it a try...guess a number! And the catch is, you only get THREE guesses.");
+console.log("The user guessed " + game.guess);
+
+function evaluateAnswer(usrInput){
+  if (usrInput == game.answer) {
+    alert("Wow, good guess! You got it!");
+    throw new Error("");
+  } else if (usrInput > 20) {
+    alert("Not that many, I wish!");
+  } else {
+    alert("Nope! Guess higher next time.");
+  }
+}
+for (var i = 1; i <= 3; i++) {
+  game.guess = prompt("Guess " + i);
+  evaluateAnswer(game.guess);
+}
+alert("The answer is " + game.answer);
 </script>
