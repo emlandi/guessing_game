@@ -1,27 +1,37 @@
 <script>
-var Game = function(){
-  this.guess = "";
-  this.answer = 20;
-}
+  var Game = function(name, answer){
+  this.name = name;
+  this.answer = answer;
 
-var game = new Game();
+  this.evaluateAnswer = function() {
+    var guess;
 
-alert("I love to travel. Can you guess how many countries I have visited? Give it a try...guess a number! And the catch is, you only get THREE guesses.");
-console.log("The user guessed " + game.guess);
+    alert(this.name + " loves to travel. Can you guess how many countries " + this.name + " has visited? Give it a try...guess a number! And the catch is, you only get THREE guesses.");
 
-function evaluateAnswer(usrInput){
-  if (usrInput == game.answer) {
-    alert("Wow, good guess! You got it!");
-    throw new Error("");
-  } else if (usrInput > 20) {
-    alert("Not that many, I wish!");
-  } else {
-    alert("Nope! Guess higher next time.");
-  }
-}
-for (var i = 1; i <= 3; i++) {
-  game.guess = prompt("Guess " + i);
-  evaluateAnswer(game.guess);
-}
-alert("The answer is " + game.answer);
+    for (var i = 1; i <= 3; i++) {
+      guess = prompt("Guess " + i);
+
+      if (guess == this.answer) {
+        alert("Wow, good guess! You got it!");
+        throw new Error("");
+
+      } else if (guess > this.answer) {
+        alert("Not that many, I wish!");
+
+      } else {
+        alert("Nope! Guess higher next time.");
+      }
+    }
+
+    alert("The answer is " + this.answer + ".");
+
+  };
+};
+
+var gameEmily = new Game("Emily", 20);
+gameEmily.evaluateAnswer();
+
+var gameHeidi = new Game("Heidi", 2);
+gameHeidi.evaluateAnswer();
+
 </script>
