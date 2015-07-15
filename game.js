@@ -6,7 +6,7 @@
     var guess;
 
     document.getElementById("intro").textContent = (this.name + " loves to travel. Can you guess how many countries " + this.name + " has visited?");
-    document.getElementById("intro").style.fontSize = "xx-large"
+    document.getElementById("intro").style.fontSize = "xx-large";
 
     for (var i = 1; i <= 3; i++) {
       guess = prompt("Guess " + i);
@@ -32,11 +32,15 @@
         guessEl.align = "center";
         guessEl.style.fontSize = "xx-large";
       }
-    }
+    };
 
-    guessEl.textContent = "The answer is " + this.answer + "."
-    guessEl.align = "center";
-    guessEl.style.fontSize = "xx-large";
+    // guessEl.textContent = "The answer is " + this.answer + ".";
+    // guessEl.align = "center";
+    // guessEl.style.fontSize = "xx-large";
+    var guess = document.getElementById("guess");
+    var p = document.createElement("p");
+    p.innerHTML = "The answer is " + this.answer + ".";
+    guess.appendChild(p);
 
   };
 };
